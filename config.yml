@@ -1,17 +1,41 @@
 accounts:
   - name: alice
-    coins: ["20000token", "200000000stake"]
-  - name: bob
-    coins: ["10000token", "100000000stake"]
+    coins: ["10000000uandroma"]
 validator:
   name: alice
-  staked: "100000000stake"
+  staked: "10000000uandroma"
 client:
   openapi:
     path: "docs/static/openapi.yml"
+  vuex:
+    path: "vue/src/store"
 faucet:
-  name: bob
-  coins: ["5token", "100000stake"]
+  name: alice
+  coins: [ "100000uandroma" ]
+  coins_max: [ "100000000uandroma" ]
 build:
   binary: "andromad"
   main: "cmd/andromad"
+#host:
+#  rpc: ":26659"
+#  p2p: ":26658"
+#  prof: ":6060"
+#  grpc: ":9090"
+#  api: ":1318"
+genesis:
+  chain_id: "androma-1"
+  app_state:
+    staking:
+      params:
+        bond_denom: "uandroma"
+    mint:
+      params:
+        mint_denom: "uandroma"
+    crisis:
+      constant_fee:
+        denom: "uandroma"
+    gov:
+      deposit_params:
+        min_deposit:
+          - amount: "1000000"
+            denom: "uandroma"
